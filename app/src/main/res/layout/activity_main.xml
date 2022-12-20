@@ -1,26 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_browse_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame">
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView3"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginEnd="411dp"-->
+<!--        android:text="Table:"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="40sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/wlan0"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/mac_data_eth0"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginRight="15dp"-->
+<!--        android:text="eth0"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/wlan0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/textView3" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/mac_data_eth0_input"-->
+<!--        android:layout_width="297dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginBottom="683dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:minHeight="48dp"-->
+<!--        android:text="eth0 ..."-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView3"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/wlan0" />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/wlan0"-->
+<!--        android:layout_width="130dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="TextView"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/mac_data_eth0_input"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView3"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/mac_data_wlan0_input"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginRight="15dp"-->
+<!--        android:layout_marginBottom="731dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:text="wlan0 ....."-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/mac_data_eth0_input"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/wlan0" />-->
+
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:text="Keys and Values" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:text="Table:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Creating a ListView-->
-    <ListView
-        android:id="@+id/listView"
+    <LinearLayout
+        android:id="@+id/eth0_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="#000000"
-        android:dividerHeight="3dp"
-        android:padding="5dp" />
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/eth0_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="eth0 MAC" />
+
+        <TextView
+            android:id="@+id/eth0_IP_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="--" />
+
+        <EditText
+            android:id="@+id/eth0_label_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="50sp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="null" />
+
+        <Button
+            android:id="@+id/eth0_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="eth0_submit"
+            android:text="eth0 submit" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wlan0_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/eth0_layout"
+        app:layout_constraintStart_toStartOf="@+id/eth0_layout"
+        app:layout_constraintTop_toBottomOf="@+id/eth0_layout">
+
+        <TextView
+            android:id="@+id/wlan0_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="wlan0 MAC" />
+
+        <TextView
+            android:id="@+id/wlan0_IP_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="--" />
+
+        <EditText
+            android:id="@+id/wlan0_label_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="50sp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="null" />
+
+        <Button
+            android:id="@+id/wlan0_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="wlan0 submit" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
